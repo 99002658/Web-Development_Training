@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Showroom</title>
+        <script>
+        function selectDevice(){
+            arrl1 = 'Lenovo~Sony~HP';
+            laptoptemp = arrl1.split('~').join(" <br> ");
+            arrt2 = 'Samsung~Sony~LG~Panasonic';
+            tvtemp = arrt2.split('~').join(" <br> ");
+            arrm3 = 'iPhone~Samsung~Sony';
+            mobiletemp = arrm3.split('~').join(" <br> ");
+            var sel = document.getElementById("mydevice");
+            if(sel.value == 'Laptop'){
+                document.getElementById("mydiv").innerHTML=laptoptemp;
+            }else if(sel.value == 'TV'){
+                document.getElementById("mydiv").innerHTML=tvtemp;
+            }else if(sel.value == 'Mobile'){
+                document.getElementById("mydiv").innerHTML=mobiletemp;
+            }else{
+                document.getElementById("mydiv").innerHTML="";
+            }
+        }
+        </script>
+    </head>
+    <body>
+        <h3>Welcome to ABC Showroom, select a device::</h3>
+        <select name="device" id="mydevice" onclick="selectDevice()">
+            <option value="select">--select--</option>
+            <option value="Laptop">Laptop</option>
+            <option value="TV">Television</option>
+            <option value="Mobile">Mobile</option>
+        </select>
+        <div style="background-color: yellow; font-family: garamond;" id="mydiv"></div>
+    </body>
+</html>

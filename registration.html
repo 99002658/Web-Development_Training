@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <script>
+        function nameValidate(nameInp){
+            var uname_arr = ['sadsds','asdasd','sdssdsasf'];
+            var i=0;
+            while (i>0){
+                if(nameInp.value==uname_arr[i]){
+                    alert('User already exists!'); 
+                    var flag=1;
+                    i++;
+                    break;
+                }
+            }
+            uname_arr.push(uname);
+            if(flag!=1){
+                alert('Username valid!');
+            }
+            if (nameInp.value.length<5 || nameInp.value.length>15){
+                alert("Username should have more than 5 or less than 15 characters!!!");
+                return false;
+            } else {
+                return true;
+            }
+        }
+        function pwdValidate(passwdInp){
+            var check = /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*]).{7,15}$/;
+            // var check = /^[A-Za-z0-9]\{7,14}$/;
+            if (passwdInp.value.match(check)){
+                return true;
+            } else {
+                alert("Password should have atleast 1:Uppercase, 1:Lowercase, 1:Number, 1:Special Character!!!");
+                return false;
+            }
+        }
+        function mailValidate(mailInp){
+            if (mailInp.value.includes('@') && mailInp.value.includes(".com")){
+                return true;
+            } else {
+                alert("E-mail should contain @-symbol and .com-extension to be considered as valid!!!");
+                return false;
+            }
+        }
+        function printDetails(){
+            //
+        }
+    </script>
+</head>
+<body>
+    <table cellpadding=10 cellspacing=10 align="center">
+        <form action="success.html" method="POST" name="myform">
+            <tr>
+                <td>Name::</td>
+                <td><input type="text" name="username" id="uname" placeholder="name..." onkeyup="nameValidate(document.myform.uname)" required></td><br>
+            </tr>
+            <tr>
+                <td>Password::</td>
+                <td><input type="password" name="passwd" id="pwd" placeholder="password..." onkeyup="pwdValidate(document.myform.pwd)" required></td><br>
+            </tr>
+            <tr>
+                <td>E-mail::</td>
+                <td><input type="text" name="email" id="mail" placeholder="email..." onkeyup="mailValidate(document.myform.mail)"></td><br>
+            </tr>
+            <tr>
+                <td>Phone::</td>
+                <td><input type="number" name="phonenumber" id="phnum" min="1000000000" max="9999999999" placeholder="phone..."></td><br>
+            </tr>
+            <tr>
+                <td>City::</td>
+                <td><input type="text" name="city" id="ucity" placeholder="city..."></td><br>
+            </tr>
+            <tr>
+                <td><input type="Submit" value="Register" onclick="success.html"/></td>
+                <td><input type="Reset" value="Clear"/></td>
+            </tr>
+        </form>
+    </table>
+</body>
+</html>
